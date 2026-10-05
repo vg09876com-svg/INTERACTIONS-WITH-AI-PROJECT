@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Pricing Card</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 40px;
+    }
+
+    .pricing {
+      width: 300px;
+      margin: 0 auto;
+      background-color: #fff;
+      box-shadow: 0 0 10px #ccc;
+      padding: 20px;
+      text-align: left;
+      border-radius: 8px;
+    }
+
+    .title {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .price {
+      font-size: 18px;
+      color: green;
+    }
+
+    .features {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .features li {
+      padding: 8px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .btn {
+      background: blue;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      margin-top: 10px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .btn:hover {
+      background: darkblue;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="app"></div>
+
+  <script>
+    function Card(title, price, features) {
+      return `
+        <div class="pricing">
+
+          <h2 class="title">${title}</h2>
+
+          <p class="price">${price}</p>
+
+          <ul class="features">
+            ${features.map(function(feature) {
+              return `<li>${feature}</li>`;
+            }).join("")}
+          </ul>
+
+          <button class="btn">Start Trial</button>
+
+        </div>
+      `;
+    }
+
+    const features = [
+      "1 GB Storage",
+      "Basic Support",
+      "All Core Features"
+    ];
+
+    document.getElementById("app").innerHTML =
+      Card(
+        "Basic Plan",
+        "$9.99 /month",
+        features
+      );
+  </script>
+
+</body>
+</html>
